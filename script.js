@@ -1,5 +1,5 @@
-const speed          = document.getElementById("reading_speed");
-const pause_change   = document.getElementById("pause");
+const reading_speed  = document.getElementById("reading_speed");
+const pause_button   = document.getElementById("pause_button");
 const text_container = document.getElementById("text_container");
 const parag_len      = document.getElementById("parag_len");
 const word_coun      = document.getElementById("word_coun");
@@ -75,16 +75,16 @@ reset_button.addEventListener('click', (e) => {
     pause = false;
 });
 
-pause_change.addEventListener('click', (e) => {
+pause_button.addEventListener('click', (e) => {
     pause = pause == false;
     if (!play) {
         setTimeout(print_text, 10);
     }
     if (pause) {
         play = true;
-        pause_change.innerHTML = "Pause";
+        pause_button.innerHTML = "Pause";
     } else {
-        pause_change.innerHTML = "Play";
+        pause_button.innerHTML = "Play";
     }
 }, false);
 
@@ -105,7 +105,7 @@ async function print_text() {
     let tslide = new TextSlider();
     let tmarker = new TextMarker(atext[0].split(" "));
 
-    let delay = Math.floor(1000 / (Number(speed.value) / 60));
+    let delay = Math.floor(1000 / (Number(reading_speed.value) / 60));
     let word = "";
 
     for (let p_i = 0; p_i < atext.length; p_i++) {
@@ -121,7 +121,7 @@ async function print_text() {
                     await timer(100);
                     if (!play) return false;
                 }
-                delay = Math.floor(1000 / (Number(speed.value) / 60));
+                delay = Math.floor(1000 / (Number(reading_speed.value) / 60));
             }
             word = paragraf[global_w_i];
             if (word.length > 0) {
@@ -138,7 +138,7 @@ async function print_text() {
 
     pause = false;
     play = false;
-    pause_change.innerHTML = "Play";
+    pause_button.innerHTML = "Play";
 
     return true;
 }
