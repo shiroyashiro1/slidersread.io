@@ -1,13 +1,18 @@
 const reading_speed  = document.getElementById("reading_speed");
-const pause_button   = document.getElementById("pause_button");
 const text_container = document.getElementById("text_container");
 const parag_len      = document.getElementById("parag_len");
 const word_coun      = document.getElementById("word_coun");
-const reset_button   = document.getElementById("reset_button");
 const text_marker    = document.getElementById("text_marker");
+
+const pause_button   = document.getElementById("pause_button");
+const reset_button   = document.getElementById("reset_button");
+const prev_prgf_butt = document.getElementById("previous_paragraf_button");
+const next_prgf_butt = document.getElementById("next_paragraf_button");
 
 let play = false;
 let pause = false;
+
+let prgrf_dir = 0;
 let global_w_i = 0;
 
 class TextSlider {
@@ -66,16 +71,25 @@ class TextMarker {
     }
 }
 
+prev_prgf_butt.addEventListener('click', () => {
+    prgrf_dir = -2;
+});
+
+next_prgf_butt.addEventListener('click', () => {
+    prgrf_dir = 1;
+});
+
 text_marker.addEventListener('click', e => {
     global_w_i = Array.prototype.indexOf.call(text_marker.children, e.target);
 });
 
-reset_button.addEventListener('click', (e) => {
+reset_button.addEventListener('click', () => {
     play = false;
     pause = false;
+    prgrf_dir = 0;
 });
 
-pause_button.addEventListener('click', (e) => {
+pause_button.addEventListener('click', () => {
     pause = pause == false;
     if (!play) {
         setTimeout(print_text, 10);
@@ -116,7 +130,7 @@ async function print_text() {
             let w = paragraf[i];
             if (w.indexOf("\n") >= 0) {
                 let tmp = w;
-                tmp = w.replace("\n", "\n ");
+                tmp = w.replace("\n", "<br> ");
                 tmp = tmp.split(" ");
                 paragraf.splice(i, 1, tmp[0], tmp[1]);
             }
@@ -125,6 +139,18 @@ async function print_text() {
         tmarker.setparagraf(paragraf);
 
         for (global_w_i = 0; global_w_i < paragraf.length; global_w_i++) {
+
+            if (prgrf_dir != 0) {
+                if (prgrf_dir > 0 && p_i != atext.length - 1) {
+                    prgrf_dir = 0;
+                    break;
+                } else if (prgrf_dir < 0 && p_i != 0) {
+                    p_i += prgrf_dir;
+                    prgrf_dir = 0;
+                    break;
+                }
+                prgrf_dir = 0;
+            }
 
             if (!play) return false;
             if (!pause) {
