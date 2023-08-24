@@ -95,14 +95,15 @@ async function print_text() {
     parag_len.innerHTML = 0;
     word_coun.innerHTML = 0;
 
-    const atext = text_container.value.split("\n");
+    let tslide = new TextSlider();
+
+    const atext = text_container.value.split("\n\n");
     if (atext[0].length == 0) {
-        tslide.curr_word.value = "Cannot print empty text!";
         tslide.curr_word.style.color = "red";
+        tslide.curr_word.innerHTML = "Cannot print empty text!";
         return false;
     }
 
-    let tslide = new TextSlider();
     let tmarker = new TextMarker(atext[0].split(" "));
 
     let delay = Math.floor(1000 / (Number(reading_speed.value) / 60));
@@ -110,6 +111,16 @@ async function print_text() {
 
     for (let p_i = 0; p_i < atext.length; p_i++) {
         let paragraf = atext[p_i].split(" ");
+
+        for (let i = 0; i < paragraf.length; i++) {
+            let w = paragraf[i];
+            if (w.indexOf("\n") >= 0) {
+                let tmp = w;
+                tmp = w.replace("\n", "\n ");
+                tmp = tmp.split(" ");
+                paragraf.splice(i, 1, tmp[0], tmp[1]);
+            }
+        }
 
         tmarker.setparagraf(paragraf);
 
