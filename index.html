@@ -3,6 +3,7 @@
   <head>
     <title>Slider's Reads</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="stub.js"></script>
   </head>
   <body>
   	<div id="slider_container">
@@ -19,7 +20,9 @@
       <input id="reading_speed" type="text" name="speed" value="60" />
     </div>
     <div id="text_viewer">
-      <button id="previous_paragraf_button" class="whole_height">&#9668</button>
+      <div>
+        <button id="previous_paragraf_button" class="side_button">&#9668</button>
+      </div>
       <div id="atext">
         <div id="text_marker"></div>
         <textarea id="text_container">
@@ -32,12 +35,18 @@
           word: <span id="word_coun">0</span>
         </p>
       </div>
-      <button id="next_paragraf_button" class="whole_height">&#9658</button>
+      <div>
+        <button id="next_paragraf_button" class="side_button">&#9658</button>
+      </div>
     </div>
     <footer>
-      <button id="settings"><img src="settings.png" alt="settings"/></button>
+      <button id="change_setup" onclick="stub()"><img src="settings.png" alt="settings"/></button>
       <button id="questionmark"><img src="questionmark.png" alt="info"/></button>
     </footer>
+    
+    <!-- SCRIPTS -->
     <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="change_setup.js"></script>
+    <script type="text/javascript" src="info.js"></script>
   </body>
 </html>

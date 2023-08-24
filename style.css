@@ -6,24 +6,42 @@ button {
 	font-size: 24px;
 	height: 80px;
 	width: 80px;
+	margin: 5px;
 }
 
 img {
 	width: 100%;
 }
 
+/* FOOTER */
+
 footer {
 	background-color: blanchedalmond;
+	display: flex;
+	justify-content: flex-end;
+	padding: 20px;
 }
 
-.nomarker {
-	background-color: #fff3f0;
-	color: #1f0008;
+/* OVERFLOW LAYER */
+.lock_block {
+	top: 0;
+	left: 0;
+	background-color: rgba(58, 58, 58, 0.5);
+	position: absolute;
+	width: 100%;
+	height: 100%;
 }
-
-.marker {
-	background-color: yellow;
-	color: #1f0008;
+/* OVERFLOW LAYER MESSAGE */
+.msg_block {
+	background-color: rgba(58, 58, 58, 1.0);
+	color: rgba(207, 235, 221, 1.0);
+	font-size: 24px;
+	font-weight: bold;
+	position: absolute;
+	top: 30%;
+	left: 30%;
+	padding: 10px;
+	border-radius: 20px;
 }
 
 /* SLIDER CONTAINER */
@@ -66,9 +84,20 @@ footer {
 	flex-wrap: nowrap;
 }
 
-.whole_height {
-	height: 200px;
-	margin: auto 10px;
+.nomarker {
+	background-color: #fff3f0;
+	color: #1f0008;
+}
+
+.marker {
+	background-color: yellow;
+	color: #1f0008;
+}
+
+
+.side_button {
+	height: 150px;
+	margin: 30px 10px;
 }
 
 #atext {
