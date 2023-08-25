@@ -3,7 +3,7 @@ body {
 }
 
 button {
-	font-size: 24px;
+	font-size: 26px;
 	height: 80px;
 	width: 80px;
 	margin: 5px;
@@ -35,7 +35,7 @@ footer {
 .msg_block {
 	background-color: rgba(58, 58, 58, 1.0);
 	color: rgba(207, 235, 221, 1.0);
-	font-size: 24px;
+	font-size: 32px;
 	font-weight: bold;
 	position: absolute;
 	top: 30%;
@@ -53,7 +53,7 @@ footer {
 }
 
 #text_slider {
-	font-size: 32px;
+	font-size: 36px;
 	font-weight: bold;
 	position: absolute;
 	top: 32px;
@@ -101,7 +101,7 @@ footer {
 }
 
 #atext {
-	font-size: 24px;
+	font-size: 26px;
 	width: 100%;
 	height: auto;
 	margin: 20px 10px;
@@ -109,17 +109,17 @@ footer {
 
 #text_container {
 	width: 100%;
-	font-size: 24px;
+	font-size: 26px;
 }
 
 #reading_speed {
 	width: 50px;
-	font-size: 24px;
+	font-size: 26px;
 }
 
 /* CONTROL PANEL */
 
 #control_panel {
 	margin-top: 20px;
-	font-size: 24px;
+	font-size: 26px;
 }
