@@ -25,9 +25,9 @@ class TextSlider {
     }
 
     set_text(word) {
-        this.last_word.innerHTML = this.curr_word.innerHTML;
-        this.curr_word.innerHTML = this.next_word.innerHTML;
-        this.next_word.innerHTML = word;
+        this.last_word.innerHTML = this.curr_word.innerHTML + " ";
+        this.curr_word.innerHTML = this.next_word.innerHTML + " ";
+        this.next_word.innerHTML = word + " ";
     }
 
     clear() {
@@ -166,8 +166,8 @@ async function print_text() {
                 word_coun.innerHTML = global_w_i + 1;
                 tmarker.wordmarking(global_w_i);
                 tslide.set_text(word);
+                await timer(delay);
             }
-            await timer(delay);
         }
     }
 
