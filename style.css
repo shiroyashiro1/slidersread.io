@@ -53,16 +53,13 @@ footer {
 }
 
 #text_slider {
+	display: flex;
 	font-size: 40px;
 	font-weight: bold;
 	position: absolute;
-	top: 32px;
+	top: 64px;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	display: flex;
-	flex-direction: row;
-	align-items: flex-start;
-	flex-wrap: nowrap;
 }
 
 #last_word {
