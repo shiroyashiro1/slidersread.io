@@ -64,16 +64,15 @@ footer {
 
 #last_word {
 	color: #778899;
-	float: left;
 }
 
 #curr_word {
 	color: #1f0008;
+	padding: 0 5px;
 }
 
 #next_word {
 	color: #778899;
-	float: right;
 }
 
 /* TEXT VIEWER */
